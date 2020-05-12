@@ -1,0 +1,18 @@
+# Module: elasticsearch
+# Docs: https://www.elastic.co/guide/en/beats/metricbeat/7.5/metricbeat-module-elasticsearch.html
+- module: elasticsearch
+  metricsets:
+    - ccr
+    - cluster_stats
+    - enrich
+    - index
+    - index_recovery
+    - index_summary
+    - ml_job
+    - node_stats
+    - shard
+  period: 10s
+  hosts: ["http://localhost:9200"]
+  username: "{{ remote_monitoring_user_username }}"
+  password: "{{ remote_monitoring_user_password }}"
+  xpack.enabled: true

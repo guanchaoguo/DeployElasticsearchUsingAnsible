@@ -1,0 +1,11 @@
+---
+# defaults file for beat-apache-module
+
+# Metricbeat module configuration 
+metric_status_period: 30s
+
+
+# File Beat module configuration
+access_log_enabled: true
+
+error_log_enabled: true 

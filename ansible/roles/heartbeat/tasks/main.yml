@@ -1,0 +1,43 @@
+---
+# tasks file for heartbeat
+
+# Install heartbeat
+
+- name: Install heartbeat with apt
+  apt:
+   name: heartbeat-elastic
+   update_cache: yes
+ 
+# Replace heartbeat configuration 
+
+- name: Replace default heartbeat.yml configurations
+  template:
+    src: heartbeat.yml
+    dest: /etc/heartbeat/heartbeat.yml
+
+- name: Add http.yml configurations
+  template:
+    src: http.yml
+    dest: /etc/heartbeat/monitors.d/http.yml
+
+
+- name: Add tcp.yml configurations
+  template:
+    src: tcp.yml
+    dest: /etc/heartbeat/monitors.d/tcp.yml
+
+
+- name: Add icmp.yml configurations
+  template:
+    src: icmp.yml
+    dest: /etc/heartbeat/monitors.d/icmp.yml
+
+
+
+# Starting heartbeat
+
+- name: Starting heartbeat
+  service:
+   name: heartbeat-elastic
+   state: started
+   enabled: yes

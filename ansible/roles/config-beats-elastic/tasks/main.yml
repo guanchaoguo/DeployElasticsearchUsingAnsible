@@ -1,0 +1,68 @@
+---
+
+# tasks file to configure beats on elasticsearch servers
+
+- name : setup filebeat dashboards
+  shell: filebeat modules enable elasticsearch
+
+- name: Replace default elasticsearch.yml module configuration file
+  template:
+    src: elasticsearch.yml
+    dest: /etc/filebeat/modules.d/elasticsearch.yml
+
+- name: Replace default kibana.yml module configuration file
+  template:
+    src: kibana.yml
+    dest: /etc/filebeat/modules.d/kibana.yml
+
+
+- name : setup filebeat dashboards
+  shell: filebeat setup
+
+
+# Restart Filebeat
+- name: Restarting filebeat
+  service:
+   name: filebeat
+   state: restarted
+
+- name : setup metricbeat monitoring for elasticsearch
+  shell: metricbeat modules enable elasticsearch-xpack
+
+ 
+- name: Replace default apache.yml module configuration file
+  template:
+    src: elasticsearch-xpack.yml
+    dest: /etc/metricbeat/modules.d/elasticsearch-xpack.yml
+
+- name : disable metricbeat system module
+  shell: metricbeat modules disable system
+
+- name : setup metricbeat monitoring for heartbeat
+  shell: metricbeat modules enable beat-xpack
+  
+- name: Replace default apache.yml module configuration file
+  template:
+    src: beat-xpack.yml
+    dest: /etc/metricbeat/modules.d/beat-xpack.yml
+
+
+# Restart Metricbeat after all changes
+- name: Restarting Metricbeat service 
+  service:
+   name: metricbeat
+   state: restarted
+
+
+- name : setup metricbeat dashboards
+  shell: metricbeat setup
+
+
+
+- name: setup auditbeat dashboards
+  shell: auditbeat setup
+
+- name: setup packetbeat dashboards 
+  shell: packetbeat setup  
+
+   

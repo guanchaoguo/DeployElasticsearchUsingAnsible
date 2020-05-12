@@ -1,0 +1,5 @@
+---
+# defaults file for packetbeat
+
+
+packetbeat_interfaces_device: any

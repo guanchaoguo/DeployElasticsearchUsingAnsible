@@ -1,0 +1,6 @@
+---
+# defaults file for metricbeat
+
+index_number_of_shards: 1
+index_codec: best_compression
+reload_enabled: true

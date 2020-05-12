@@ -1,0 +1,39 @@
+---
+# defaults file for elasticsearch
+
+# Cluster settings
+cluster_name: hb_es_democluster
+master_node_name: es-node-1
+
+#network settings 
+network_host: 0.0.0.0
+http_port: 9200
+discovery_seed_hosts: 127.0.0.1
+
+#path settings 
+path_data: /var/lib/elasticsearch
+path_logs: /var/log/elasticsearch
+
+es_home: /usr/share/elasticsearch
+es_conf_dir: /etc/elasticsearch
+
+es_user: elasticsearch
+es_group: elasticsearch
+
+es_api_scheme: "http"
+es_api_host: "localhost"
+es_api_port: 9200
+es_api_uri: "{{ es_api_scheme }}://{{ es_api_host }}:{{ es_api_port }}"
+es_security_api: _security
+es_validate_certs: no
+
+
+# x-pack settings
+xpack_security_enabled: true 
+discovery_type: single-node
+
+# metricbeat monitoring
+xpack_monitoring_collection_enabled: true 
+xpack_monitoring_elasticsearch_collection_enabled: false
+
+

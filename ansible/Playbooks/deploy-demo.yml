@@ -1,0 +1,38 @@
+---
+
+# This playbook deploys the demo lab 
+
+# This section deploys ELK stack and beats on a single node elk cluster
+ - hosts: elk
+   become: yes
+   vars_files:
+   - ../vars/main.yml 
+   tasks:
+   roles:
+   - ../roles/java
+   - ../roles/add-elastic-repo
+   - ../roles/elasticsearch
+   - ../roles/kibana
+   - ../roles/metricbeat
+   - ../roles/auditbeat
+   - ../roles/filebeat
+   - ../roles/packetbeat
+   - ../roles/config-beats-elastic
+   - ../roles/heartbeat 
+
+# This section deploys webservers with beats
+
+ - hosts: webservers
+   become: yes
+   vars_files:
+   - ../vars/main.yml    
+  
+   roles:
+   - ../roles/add-elastic-repo
+   - ../roles/webserver
+   - ../roles/metricbeat
+   - ../roles/auditbeat
+   - ../roles/filebeat
+   - ../roles/packetbeat
+   - ../roles/config-beats-apache
+ 

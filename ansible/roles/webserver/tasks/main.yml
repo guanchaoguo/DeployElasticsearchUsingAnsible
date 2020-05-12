@@ -1,0 +1,20 @@
+---
+
+- name: install apache2
+  apt: 
+   name: apache2 
+   state: latest
+   update_cache: yes 
+       
+
+# Add sample html file
+- name: deploy index.html
+  copy:
+   src: index.html
+   dest: /var/www/html/index.html
+
+- name: Starting apache
+  service:
+   name: apache2
+   state: started
+   enabled: yes

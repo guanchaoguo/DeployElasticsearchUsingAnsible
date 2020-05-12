@@ -1,0 +1,37 @@
+---
+# Installing Elasticsearch
+
+- name: Install Elasticsearch
+  apt:
+   name: elasticsearch
+   
+   
+# Replace the default elasticsearch.yml file with updated file
+
+- name: Replace default elasticsearch.yml configurations
+  template:
+    src: elasticsearch.yml
+    dest: /etc/elasticsearch/elasticsearch.yml
+
+   
+# Start Elasticsearch
+- name: Starting Elasticsearch
+  service:
+   name: elasticsearch
+   state: started
+   enabled: yes
+
+
+
+#Security configuration
+- name: include security/elasticsearch-security.yml
+  include: security/elasticsearch-security.yml
+  when: inital_password_setup
+
+#Make sure elasticsearch.keystore has correct Permissions
+- name: Set elasticsearch.keystore Permissions
+  become: yes
+  file: state=file path={{ es_conf_dir }}/elasticsearch.keystore owner=root group={{ es_group }} mode=0660
+  when: inital_password_setup
+
+

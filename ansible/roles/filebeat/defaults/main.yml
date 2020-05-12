@@ -1,0 +1,10 @@
+---
+filebeat_input_enabled: true
+log_path: /var/log/*.log
+
+
+reload_enabled: true 
+
+index_number_of_shards: 1
+
+

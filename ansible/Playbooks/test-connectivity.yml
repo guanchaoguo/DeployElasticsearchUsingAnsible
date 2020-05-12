@@ -1,0 +1,9 @@
+---
+
+# This playbook validates connectivity to elastic hosts
+
+ - hosts: all
+   tasks: 
+   - name: Test connection
+     ping:
+...

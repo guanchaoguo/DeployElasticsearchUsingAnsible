@@ -1,0 +1,27 @@
+---
+# tasks file for metricbeat
+
+
+# Install Metricbeat 
+
+- name: Install Metricbeat with apt
+  apt:
+   name: metricbeat
+   update_cache: yes
+
+
+# Replace Filebeat configuration to ship to Logz.io. 
+
+- name: Replace default metricbeat.yml configurations
+  template:
+    src: metricbeat.yml
+    dest: /etc/metricbeat/metricbeat.yml
+
+    
+# Starting Metricbeat
+
+- name: Starting Metricbeat
+  service:
+   name: metricbeat
+   state: started
+   enabled: yes

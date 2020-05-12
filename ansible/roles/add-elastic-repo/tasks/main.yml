@@ -1,0 +1,32 @@
+---
+# tasks file for add-elastic-repo
+
+
+
+# Add Elasticsearch apt key
+
+- name: Add Elasticsearch apt key
+  apt_key:
+   url: "{{ elastic_url }}"
+   state: present
+
+# Install transport 
+
+- name: Install transport
+  apt: 
+   name: apt-transport-https
+   update_cache: yes
+
+
+# Add the Elasticsearch apt repo. For versions 7 of the stack 
+
+- name: Adding Elasticsearch repo
+  apt_repository:
+   repo: deb {{ elastic_repo }} stable main
+   state: present
+
+# system update
+
+- name: update apt list
+  apt:
+   update_cache: yes

@@ -1,0 +1,11 @@
+---
+# defaults file for auditbeat
+
+state_period: 6h 
+
+user_detect_password_changes: true
+
+login_wtmp_file_pattern: /var/log/wtmp*
+login_btmp_file_pattern: /var/log/btmp*
+
+index_number_of_shards: 1

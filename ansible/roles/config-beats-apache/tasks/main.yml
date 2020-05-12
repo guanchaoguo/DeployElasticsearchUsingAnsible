@@ -1,0 +1,31 @@
+---
+
+# tasks file for beat-apache-module
+
+- name : enable filebeat apache module
+  shell: filebeat modules enable apache
+
+- name: Replace default apache.yml module configuration file
+  template:
+    src: apache-filebeat.yml
+    dest: /etc/filebeat/modules.d/apache.yml
+
+- name : setup filebeat dashboards
+  shell: filebeat setup
+
+- name : enable metricbeat apache module
+  shell: metricbeat modules enable apache
+
+- name: Replace default apache.yml module configuration file
+  template:
+    src: apache-metricbeat.yml
+    dest: /etc/metricbeat/modules.d/apache.yml
+
+- name : setup metricbeat dashboards
+  shell: metricbeat setup
+
+- name: setup auditbeat dashboards
+  shell: auditbeat setup
+
+- name: setup packetbeat dashboards 
+  shell: packetbeat setup  

@@ -1,0 +1,43 @@
+---
+#Security specific configuration done here
+
+#TODO: 1. Skip users with no password defined or error 2. Passwords | length > 6
+
+#-----------------------------Create Bootstrap User-----------------------------------
+### START BLOCK elasticsearch keystore ###
+- name: create the elasticsearch keystore
+  block:
+  - name: create the keystore if it doesn't exist yet
+    become: yes
+    command: >
+     {{es_home}}/bin/elasticsearch-keystore create
+    args:
+      creates: "{{ es_conf_dir }}/elasticsearch.keystore"
+    environment:
+      ES_PATH_CONF: "{{ es_conf_dir }}"
+
+  - name: Check if bootstrap password is set
+    become: yes
+    command: >
+     {{ es_home }}/bin/elasticsearch-keystore list
+    register: list_keystore
+    changed_when: False     # this will never report 'changed' status
+    environment:
+      ES_PATH_CONF: "{{ es_conf_dir }}"
+    check_mode: no
+
+  - name: Create Bootstrap password for elastic user
+    become: yes
+    shell: echo "{{ es_api_basic_auth_password }}" | {{ es_home }}/bin/elasticsearch-keystore add -x 'bootstrap.password'
+    when:
+      - es_api_basic_auth_username is defined and list_keystore is defined and es_api_basic_auth_username == 'elastic' and 'bootstrap.password' not in list_keystore.stdout_lines
+    environment:
+      ES_PATH_CONF: "{{ es_conf_dir }}"
+    no_log: true  # this is needed to hide the password in verbose output when running playbook
+### END BLOCK elasticsearch keystore ###
+
+
+#-----------------------------NATIVE REALM----------------------------------------
+
+- include: elasticsearch-security-native.yml
+ 
