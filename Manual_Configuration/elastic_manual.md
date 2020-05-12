@@ -2,7 +2,7 @@
 
 ## Install Java
 
-sudo apt-get install openjdk-8-jdk
+    sudo apt-get install openjdk-8-jdk
 
 # Manual ElK Stack Installation steps
 
