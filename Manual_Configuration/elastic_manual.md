@@ -6,31 +6,30 @@ sudo apt-get install openjdk-8-jdk
 
 # Manual ElK Stack Installation steps
 
-1. Download and install public signing key 
+## 1. Download and install public signing key 
+
+    wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
+## 2. Install apt-transport-https package
+
+    sudo apt-get install apt-transport-https -y
+
+## 3. Save directory definitions
+
+    echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 
 
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+## 4. Update and Install elasticsearch
 
-2. Install apt-transport-https package
+    sudo apt-get update 
+    
+    sudo apt-get install elasticsearch 
+    
+    sudo apt-get install logstash
+    
+    sudo apt-get install kibana
 
-sudo apt-get install apt-transport-https -y
-
-3. Save directory definitions
-
-echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
-
-
-4. Update and Install elasticsearch
-
-sudo apt-get update 
-
-sudo apt-get install elasticsearch 
-
-sudo apt-get install logstash
-
-sudo apt-get install kibana
-
-5. configure elasticsearch
+## 5. configure elasticsearch
 
     sudo su
     nano /etc/elasticsearch/elasticsearch.yml
@@ -47,15 +46,15 @@ sudo apt-get install kibana
     setup discovery.type as single node
     discovery.type: single-node
 
-6. Start Elasticsearch service
+## 6. Start Elasticsearch service
 
     sudo systemctl start elasticsearch
 
-7. validate Elasticsearch cluster health
+## 7. validate Elasticsearch cluster health
 
     curl -XGET http://localhost:9200/_cluster/health?pretty
 
-7. configure kibana
+## 8. configure kibana
     
     nano /etc/kibana/kibana.yml
 
@@ -71,11 +70,11 @@ sudo apt-get install kibana
     uncomment elasticsearch.host
     elasticsearch.hosts: ["http://localhost:9200"]
     
-8. start Kibana service
+## 9. start Kibana service
 
     systemctl start kibana
     
-9. enable elasticsearch and kibana
+## 10. enable elasticsearch and kibana
 
     systemctl enable elasticsearch
     systemctl enable kibana
