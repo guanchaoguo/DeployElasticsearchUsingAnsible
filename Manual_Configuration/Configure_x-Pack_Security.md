@@ -25,22 +25,22 @@
 
 
 Changed password for user apm_system
-PASSWORD apm_system = MdoonZqBKYYVOXzcHiwu
+PASSWORD apm_system = 4neVI2cTdVPsIIhgq2uN
 
 Changed password for user kibana
-PASSWORD kibana = Kqzw58a4QSXVV6eSS1FJ
+PASSWORD kibana = 5NQ0oI25jtUBoLYHXvoA
 
 Changed password for user logstash_system
-PASSWORD logstash_system = PUzQdup0ccQ83jartoYp
+PASSWORD logstash_system = RkdDhuNBLH4iFGEUvcpx
 
 Changed password for user beats_system
-PASSWORD beats_system = 0IVYHBBynZotqCVN1MZw
+PASSWORD beats_system = 1E6GE8Oqkl78HfLELugm
 
 Changed password for user remote_monitoring_user
-PASSWORD remote_monitoring_user = iB5ZHQIlmJDbgzvxgxCS
+PASSWORD remote_monitoring_user = 8eATTdexdIwphAxNFt0b
 
 Changed password for user elastic
-PASSWORD elastic = te0NAMWgXOYalFuaST6P
+PASSWORD elastic = UUoRHvm4GWgiC29V12P3
 
 
 ## 5. Add the default username in kibana
