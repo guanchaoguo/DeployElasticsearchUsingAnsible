@@ -33,6 +33,7 @@
         ### name and tag
         name: elk-metrics
         Tags: demo-elk
+        env: lab
         ### enable kibana dashboards
         Setup.dashboards.enabled: true
         host: localhost:5601
@@ -45,6 +46,21 @@
         #api_key: "id:api_key"
         username: "elastic"      ####  elasticsuperuser
         password: "password".    #### elastic users password
+
+        ## logging
+        logging.level: debug
+
+        logging.selectors: ["*"]
+
+        logging.to_files: true
+        logging.files:
+        path: /var/log/metricbeat
+        name: metricbeat
+        keepfiles: 7
+        permissions: 0644
+        ## enable interal collection of metricbeat
+        monitoring.enabled: true
+        monitoring.elasticsearch
 
 ## Start Metricbeat
 
@@ -70,9 +86,7 @@
     username: remote_monitoring_user
     password: remote_monitoring_user_password
 
-## enable monitoring of metricbeat using metricbeat
 
-    sudo metricbeat modules enable beats-xpack
 
 
 ### All configuration should be live reloaded using our live reload configuration
