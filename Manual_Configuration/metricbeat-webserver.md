@@ -2,6 +2,8 @@
 
 ## 1. Download and install public signing key 
 
+
+
     wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 
 ## 2. Install apt-transport-https package
