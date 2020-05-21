@@ -16,7 +16,7 @@
     environment:
       ES_PATH_CONF: "{{ es_conf_dir }}"
 
-  - name: Check if bootstrap password is set
+  - name: Check if elasticsearch keystore is setup
     become: yes
     command: >
      {{ es_home }}/bin/elasticsearch-keystore list
