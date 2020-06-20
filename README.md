@@ -9,15 +9,15 @@ This playbook has been tested on the following software versions:
   - Webservers: Debian 9(stretch)
 
 - ELK Stack:
-  - Elasticsearch: 7.5
-  - Kibana: 7.5
+  - Elasticsearch: 7.x
+  - Kibana: 7.x
 
 - Beats:
-  - Metricbeat: 7.5
-  - Filebeat: 7.5
-  - Auditbeat: 7.5
-  - Packetbeat: 7.5
-  - Heatbeat: 7.5
+  - Metricbeat: 7.x
+  - Filebeat: 7.x
+  - Auditbeat: 7.x
+  - Packetbeat: 7.x
+  - Heatbeat: 7.x
 
 - Misc
   - Apache2: latest
