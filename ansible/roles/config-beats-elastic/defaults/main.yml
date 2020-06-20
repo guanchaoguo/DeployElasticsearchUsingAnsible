@@ -1,6 +1,0 @@
----
-# defaults file for config-beats-elastic
-
-
-xpack_beat_period: 30s
-xpack_beat_port: 5066
