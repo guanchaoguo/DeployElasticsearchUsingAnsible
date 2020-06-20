@@ -2,6 +2,8 @@
 
 ## 1. Download and install public signing key 
 
+
+
     wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 
 ## 2. Install apt-transport-https package
@@ -44,6 +46,22 @@
         #api_key: "id:api_key"
         username: "elastic"      ####  elasticsuperuser
         password: "password".    #### elastic users password
+ ## logging
+        logging.level: debug
+
+        logging.selectors: ["*"]
+
+        logging.to_files: true
+        logging.files:
+        path: /var/log/metricbeat
+        name: metricbeat
+        keepfiles: 7
+        permissions: 0644
+        ## enable interal collection of metricbeat
+        monitoring.enabled: true
+        monitoring.elasticsearch
+
+
 
 ## Start Metricbeat
 

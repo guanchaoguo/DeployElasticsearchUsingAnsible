@@ -12,7 +12,7 @@
     xpack.monitoring.elasticsearch.collection.enabled: true
 
 
-## Restart Elasticsearch service
+## Restart Elasclearticsearch service
 
     sudo systemctl restart elasticsearch
 
