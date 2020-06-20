@@ -1,0 +1,6 @@
+---
+# This playbook  will deploy elk stack
+- hosts: elk
+  become: yes
+  roles:
+  - ../roles/elasticsearch

@@ -1,11 +1,9 @@
 # Installation and Configuration of ElasticSearch
-# https://gitlab.com/LabIT/elasticsearch.git
+
 # Pre-requisites 
 
 ## Install Java
 
-    sudo apt-get update
-    
     sudo apt-get install openjdk-8-jdk
 
 # Manual ElK Stack Installation steps
@@ -25,7 +23,13 @@
 
 ## 4. Update and Install elasticsearch
 
-    sudo apt-get update && sudo apt-get install elasticsearch && sudo apt-get install logstash && sudo apt-get install kibana
+    sudo apt-get update 
+    
+    sudo apt-get install elasticsearch 
+    
+    sudo apt-get install logstash
+    
+    sudo apt-get install kibana
 
 ## 5. configure elasticsearch
 

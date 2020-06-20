@@ -59,9 +59,6 @@
 
     sudo metricbeat modules enable system
 
-## enable monitoring of metricbeat using metricbeat
-
-    sudo metricbeat modules enable beats-xpack
 
 
 ### All configuration should be live reloaded using our live reload configuration

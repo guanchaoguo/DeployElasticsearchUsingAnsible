@@ -1,0 +1,83 @@
+---
+
+- name: Restarting Elasticsearch
+  service: 
+   name: elasticsearch
+   state: restarted
+
+#------------------------------- Setup Built-in User passwords-----------
+
+- name: Update elastic user password
+  uri:
+   url: "{{ es_api_uri }}/{{ es_security_api }}/user/{{es_api_basic_auth_username}}/_password"
+   method: POST
+   body_format: json
+   body: "{ \"password\":\"{{ elastic_password }}\" }"
+   status_code: 200
+   user: "{{es_api_basic_auth_username}}"
+   password: " {{es_api_basic_auth_password}}"
+   force_basic_auth: "{{ es_force_basic_auth }}"
+   validate_certs: "{{ es_validate_certs }}"
+
+
+- name: Update Kibana user password
+  uri:
+   url: "{{ es_api_uri }}/{{ es_security_api }}/user/{{ kibana_username }}/_password"
+   method: POST
+   body_format: json
+   body: "{ \"password\":\"{{ kibana_password }}\" }"
+   status_code: 200
+   user: " {{es_api_basic_auth_username}}"
+   password: "{{ elastic_password }}"
+   force_basic_auth: "{{ es_force_basic_auth }}"
+   validate_certs: "{{ es_validate_certs }}"
+
+
+- name: Update logstash_system user password
+  uri:
+   url: "{{ es_api_uri }}/{{ es_security_api }}/user/{{ logstash_system_username }}/_password"
+   method: POST
+   body_format: json
+   body: "{ \"password\":\"{{ logstash_system_password }}\" }"
+   status_code: 200
+   user: " {{es_api_basic_auth_username}}"
+   password: "{{ elastic_password }}"
+   force_basic_auth: "{{ es_force_basic_auth }}"
+   validate_certs: "{{ es_validate_certs }}"
+
+- name: Update beats_system user password
+  uri:
+   url: "{{ es_api_uri }}/{{ es_security_api }}/user/{{ beats_system_username }}/_password"
+   method: POST
+   body_format: json
+   body: "{ \"password\":\"{{ beats_system_password }}\" }"
+   status_code: 200
+   user: " {{es_api_basic_auth_username}}"
+   password: "{{ elastic_password }}"
+   force_basic_auth: "{{ es_force_basic_auth }}"
+   validate_certs: "{{ es_validate_certs }}"
+
+- name: Update APM system user password
+  uri:
+   url: "{{ es_api_uri }}/{{ es_security_api }}/user/{{ apm_system_username }}/_password"
+   method: POST
+   body_format: json
+   body: "{ \"password\":\"{{ apm_system_password }}\" }"
+   status_code: 200
+   user: " {{es_api_basic_auth_username}}"
+   password: "{{ elastic_password }}"
+   force_basic_auth: "{{ es_force_basic_auth }}"
+   validate_certs: "{{ es_validate_certs }}"
+
+
+- name: Update remote_monitoring_user  password
+  uri:
+   url: "{{ es_api_uri }}/{{ es_security_api }}/user/{{ remote_monitoring_user_username }}/_password"
+   method: POST
+   body_format: json
+   body: "{ \"password\":\"{{ remote_monitoring_user_password }}\" }"
+   status_code: 200
+   user: " {{es_api_basic_auth_username}}"
+   password: "{{ elastic_password }}"
+   force_basic_auth: "{{ es_force_basic_auth }}"
+   validate_certs: "{{ es_validate_certs }}"

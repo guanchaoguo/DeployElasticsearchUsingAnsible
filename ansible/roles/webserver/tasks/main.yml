@@ -1,20 +1,21 @@
 ---
+# tasks file for webserver
 
 - name: install apache2
   apt: 
-   name: apache2 
-   state: latest
-   update_cache: yes 
-       
+    name: apache2
+    state: latest
+    update_cache: yes
 
-# Add sample html file
 - name: deploy index.html
   copy:
-   src: index.html
-   dest: /var/www/html/index.html
+    src: index.html
+    dest: /var/www/html/index.html
 
-- name: Starting apache
+- name: starting apache
   service:
-   name: apache2
-   state: started
-   enabled: yes
+    name: apache2
+    state: started
+    enabled: yes
+
+    

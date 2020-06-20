@@ -1,0 +1,6 @@
+---
+# This playbook  will deploy wbeserver
+- hosts: webservers
+  become: yes
+  roles:
+  - ../roles/webserver

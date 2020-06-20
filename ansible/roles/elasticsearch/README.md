@@ -1,55 +1,38 @@
 Role Name
 =========
 
-This role will install elasticsearch on a server.
+A brief description of the role goes here.
 
 Requirements
 ------------
-Java is present on the target machine.
-Elasticsearch repo to be present on the target machine. 
+
+Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
 
-Following variables can be set using this role 
-
-cluster_name
-master_node_name
-
-#network settings 
-network_host
-http_port
-
-#path settings 
-path_data
-path_logs
+A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
 Dependencies
 ------------
-this role requires following roles role to be run before this role. 
 
-1. java
-2. add-elastic-repo
+A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
- - hosts: elk
-   become: yes
-   tasks:
-   roles:
-   - ../roles/java
-   - ../roles/add-elastic-repo
-   - ../roles/elasticsearch
-   - ../roles/kibana
- 
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+
+    - hosts: servers
+      roles:
+         - { role: username.rolename, x: 42 }
 
 License
 -------
 
-None
+BSD
 
 Author Information
 ------------------
 
-Author Name: Vikas Yadav
+An optional section for the role authors to include contact information, or a website (HTML is not allowed).

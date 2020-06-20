@@ -2,31 +2,30 @@
 # tasks file for add-elastic-repo
 
 
+# Add elasticsearch PSK
 
-# Add Elasticsearch apt key
-
-- name: Add Elasticsearch apt key
+- name: add elasticsearch public signing key
   apt_key:
-   url: "{{ elastic_url }}"
+   url: "{{ elastic_psk_url }}"
    state: present
 
-# Install transport 
 
-- name: Install transport
-  apt: 
-   name: apt-transport-https
-   update_cache: yes
+# Install Transport module
 
-
-# Add the Elasticsearch apt repo. For versions 7 of the stack 
-
-- name: Adding Elasticsearch repo
-  apt_repository:
-   repo: deb {{ elastic_repo }} stable main
-   state: present
-
-# system update
-
-- name: update apt list
+- name: Installing apt-transport-https
   apt:
-   update_cache: yes
+    name: apt-transport-https
+    update_cache: yes
+
+# Add elasticsearch repo definitions
+
+- name: Add elasticsearch repo definitions
+  apt_repository:
+    repo: deb {{ elastic_repo }} stable main
+    state: present
+    
+    
+# System update
+- name: system update
+  apt: 
+    update_cache: yes

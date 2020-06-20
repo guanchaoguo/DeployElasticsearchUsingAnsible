@@ -1,5 +1,2 @@
 ---
-
-
-openjdk_version: 1.8.0
-openjdk_package_name: "java-{{ openjdk_version }}-openjdk"
+# defaults file for java

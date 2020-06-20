@@ -1,8 +1,7 @@
 ---
-# Install openjdk8
+# tasks file for java
 
- - name: Install Java
-   apt: 
-    name: openjdk-8-jdk
-    update_cache: yes
-    
+- name: Install Java
+  apt: 
+   name: openjdk-8-jdk
+   update_cache: yes
