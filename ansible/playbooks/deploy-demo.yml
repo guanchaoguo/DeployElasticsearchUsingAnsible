@@ -13,6 +13,7 @@
   roles:
   - ../roles/java
   - ../roles/elasticsearch
+  - ../roles/kibana
 
   # This playbook  will deploy wbeserver
 - hosts: webservers

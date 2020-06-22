@@ -1,6 +1,8 @@
 ---
+
 # This playbook  will deploy elk stack
 - hosts: elk
   become: yes
+  vars_files: ../vars/credentials.yml
   roles:
-  - ../roles/elasticsearch
+  - ../roles/kibana

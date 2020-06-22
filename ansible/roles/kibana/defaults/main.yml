@@ -1,0 +1,15 @@
+---
+# defaults file for kibana
+
+
+## server settings
+server_port: 5601
+server_host: 0.0.0.0
+server_name: demo-kibana
+
+## elasticsearch hosts
+elasticsearch_host: http://localhost:9200
+
+## xpack security settings
+
+xpack_security_encryptionKey: mynameisanthonygonsalvesmainduniyameinakelahoo

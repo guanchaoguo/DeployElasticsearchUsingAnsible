@@ -1,0 +1,25 @@
+---
+# tasks file for kibana
+
+# Installing Kibana
+
+- name: Installing Kibana with apt
+  apt:
+   name: kibana
+   update_cache: yes
+
+# Replacing default kibana.yml with updated file
+
+- name: Replacing default kibana.yml with updated file
+  template:
+   src: kibana.yml
+   dest: /etc/kibana/kibana.yml
+
+# Starting Kibana
+
+- name: Starting Kibana
+  service:
+   name: kibana
+   state: started
+   enabled: yes
+   
