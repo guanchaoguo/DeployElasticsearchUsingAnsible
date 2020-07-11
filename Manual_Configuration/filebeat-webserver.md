@@ -1,4 +1,4 @@
-# Instllation and configuration of Filebeat on ELK Server
+# Instllation and configuration of Filebeat on Web Server
 
 ## 1. Validate logging is configured for metricbeat
 
