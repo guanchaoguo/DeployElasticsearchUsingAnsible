@@ -1,4 +1,4 @@
-# Instllation and configuration of Metricbeat on ELK Server
+# Instllation and configuration of Metricbeat on WebServer
 
 ## 1. Download and install public signing key 
 
