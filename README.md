@@ -48,7 +48,7 @@ Internet connectivity to download software.
 
 ## Dependencies
 
-Python is installed on target machines to allow ansible to connect to remote.
+Ansible master server should be able to connect to targer servers.
 
 ## Example Playbook
 
