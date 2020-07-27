@@ -13,7 +13,7 @@
       
       -w /etc/elasticsearch/elasticsearch.yml -p wa -k elk_changes
 
-      -w /etc/kibana/kibana.yml -p wa -l elk_changes
+      -w /etc/kibana/kibana.yml -p wa -k elk_changes
       
    ### file_integrity module
 

@@ -59,13 +59,15 @@
    ### 9.1 ICMP monitor
       
       id: icmp-status
-      name: web status check
+      name: icmp status check
       enabled: true
       hosts: ["192.168.2.19", "35.197.123.189"]
       tags: ["web-tier"]
 
    ### 9.2 http monitor
-      
+      id: web-status
+      name: web status check
+      enabled: true
       enabled: true
       hosts: ["http://localhost:9200", "http://localhost:5601"]
       username: 'elastic'
@@ -73,6 +75,9 @@
       tags: ["elk"]
 
    ### 9.3 tcp monitor
+      id: ssh-status
+      name: ssh status check
+      enabled: true
       hosts: ["192.168.2.19:22"]
       
 ## 10. Stack monitoring 
