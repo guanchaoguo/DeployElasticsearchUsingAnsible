@@ -1,13 +1,10 @@
 # Instllation and configuration of packetbeat on ELK Server
 
-
-
-
-## Install packetbeat
+## 1. Install packetbeat
 
     sudo apt-get install packetbeat
 
-## Configure Metribeat
+## 2. Configure Metribeat
 
     sudo su
     cd /etc/packetbeat
@@ -34,22 +31,24 @@
         password: "goodwitch"
 
         
-## Start packetbeat
+## 3. Start packetbeat
 
     sudo systemctl start packetbeat
 
-## 5. Enable beat-pack if not already enabled 
+## 4. Enable beat-pack if not already enabled 
        sudo metricbeat modules enable beat-xpack
 
-## 6. configure beat-expack 
+## 5. configure beat-expack 
    
         sudo nano /etc/metricbeat/modules.d/beat-xpack.yml
         hosts: ["http://localhost:5070"]
         username: "beats_system"
         password: "avatar"
 
-## 7. Validate metricbeat service is running
+## 6. Validate metricbeat service is running
 
     systemctl status metricbeat
+
+## 7. Stack monitoring and dashboards
 
 
