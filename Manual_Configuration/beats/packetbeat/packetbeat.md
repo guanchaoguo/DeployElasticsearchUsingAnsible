@@ -1,4 +1,4 @@
-# Instllation and configuration of packetbeat on ELK Server
+# Instllation and configuration of packetbeat on web Server
 
 ## 1. Install packetbeat
 
