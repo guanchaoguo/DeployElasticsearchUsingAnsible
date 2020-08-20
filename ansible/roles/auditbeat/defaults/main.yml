@@ -1,0 +1,33 @@
+---
+# defaults file for auditbeat
+
+system_period: 2m
+state_period: 12h
+user_detect_password_changes: true
+
+login_wtmp_file_pattern: /var/log/wtmp*
+login_btmp_file_pattern: /var/log/btmp*
+
+reload_enabled: true 
+reload_period: 10s
+
+index_number_of_shards: 1
+index_codec: best_compression
+
+setup_dashboards_enabled: true 
+
+tag: elk
+
+#----------- Lopgging -----------------------
+logging_level: debug
+
+logging_selectors: 
+logging_to_files: true
+logging_path: /var/log/auditbeat
+logging_file_name: auditbeat
+logging_keepfiles: 7
+logging_file_permissions: 0644
+
+#------------Monitoring -------------------
+http_enabled: true
+http_port: 5068

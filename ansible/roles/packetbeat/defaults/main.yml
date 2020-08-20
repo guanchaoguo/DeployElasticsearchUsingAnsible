@@ -1,0 +1,33 @@
+---
+# defaults file for packetbeat
+
+packetbeat_interfaces_device: any
+
+packetbeat_flows_timeout: 30s
+packetbeat_flows_period: 10s
+
+icmp_enabled: true
+
+reload_enabled: true 
+reload_period: 10s
+
+index_number_of_shards: 1
+index_codec: best_compression
+
+setup_dashboards_enabled: true 
+
+tag: web-tier
+
+#----------- Lopgging -----------------------
+logging_level: debug
+
+logging_selectors: 
+logging_to_files: true
+logging_path: /var/log/packetbeat
+logging_file_name: packetbeat
+logging_keepfiles: 7
+logging_file_permissions: 0644
+
+#------------Monitoring -------------------
+http_enabled: true
+http_port: 5070

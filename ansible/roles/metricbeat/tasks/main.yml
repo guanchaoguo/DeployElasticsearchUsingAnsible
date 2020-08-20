@@ -1,0 +1,25 @@
+---
+# tasks file for metricbeat
+
+# ------Install Metricbeat--------
+
+
+- name: Install Metricbeat
+  apt:
+   name: metricbeat
+   update_cache: yes
+
+# ----- Replacing the configuration file
+
+- name: Replace default metricbeat configuration file
+  template: 
+   src: metricbeat.yml
+   dest: /etc/metricbeat/metricbeat.yml
+
+#--------- Starting metricbeat service
+
+- name: Starting metricbeat
+  service:
+   name: metricbeat
+   state: started
+   enabled: yes

@@ -1,0 +1,26 @@
+---
+# defaults file for heartbeat
+
+reload_enabled: true 
+reload_period: 5s
+
+index_number_of_shards: 1
+index_codec: best_compression
+
+setup_dashboards_enabled: true 
+
+tag: elk
+
+#----------- Lopgging -----------------------
+logging_level: debug
+
+logging_selectors: 
+logging_to_files: true
+logging_path: /var/log/heartbeat
+logging_file_name: heartbeat
+logging_keepfiles: 7
+logging_file_permissions: 0644
+
+#------------Monitoring -------------------
+http_enabled: true
+http_port: 5069

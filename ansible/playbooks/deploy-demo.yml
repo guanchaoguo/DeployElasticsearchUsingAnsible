@@ -9,14 +9,31 @@
 # This playbook  will deploy elk stack
 - hosts: elk
   become: yes
-  vars_files: ../vars/credentials.yml
+  vars_files: 
+  - ../vars/credentials.yml
+  - ../vars/main.yml
+
   roles:
   - ../roles/java
   - ../roles/elasticsearch
   - ../roles/kibana
-
+  - ../roles/metricbeat
+  - ../roles/filebeat
+  - ../roles/auditbeat
+  - ../roles/heartbeat
+  - ../roles/config-beats-elastic
+  
   # This playbook  will deploy wbeserver
 - hosts: webservers
   become: yes
+  vars_files: 
+  - ../vars/credentials.yml
+  - ../vars/main.yml
+
   roles:
   - ../roles/webserver
+  - ../roles/metricbeat
+  - ../roles/filebeat
+  - ../roles/auditbeat
+  - ../roles/packetbeat
+  - ../roles/config-beats-webserver

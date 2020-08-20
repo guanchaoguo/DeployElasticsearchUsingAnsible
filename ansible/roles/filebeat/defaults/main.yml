@@ -1,0 +1,28 @@
+---
+# defaults file for filebeat
+
+filebeat_input_enabled: false
+log_path: /var/log/*.log
+
+
+reload_enabled: true 
+reload_period: 10s
+
+index_number_of_shards: 1
+index_codec: best_compression
+
+tag: elk
+
+#----------- Lopgging -----------------------
+logging_level: debug
+
+logging_selectors: 
+logging_to_files: true
+logging_path: /var/log/filebeat
+logging_file_name: filebeat
+logging_keepfiles: 7
+logging_file_permissions: 0644
+
+#------------Monitoring -------------------
+http_enabled: true
+http_port: 5067

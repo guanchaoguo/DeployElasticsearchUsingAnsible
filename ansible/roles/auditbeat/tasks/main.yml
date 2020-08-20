@@ -1,0 +1,25 @@
+---
+# tasks file for auditbeat
+
+# ------Install auditbeat--------
+
+
+- name: Install auditbeat
+  apt:
+   name: auditbeat
+   update_cache: yes
+
+# ----- Replacing the configuration file
+
+- name: Replace default auditbeat configuration file
+  template: 
+   src: auditbeat.yml
+   dest: /etc/auditbeat/auditbeat.yml
+
+#--------- Starting auditbeat service
+
+- name: Starting auditbeat
+  service:
+   name: auditbeat
+   state: started
+   enabled: yes

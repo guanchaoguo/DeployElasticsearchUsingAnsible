@@ -1,0 +1,61 @@
+---
+# tasks file for config-beats-elastic
+
+
+
+###   ------- Metricbeat module configuration
+
+- name: Configuring elasticsearch-xpack
+  template: 
+   src: metricbeat/elasticsearch-xpack.yml
+   dest: /etc/metricbeat/modules.d/elasticsearch-xpack.yml
+
+- name: Configuring kibana-xpack
+  template: 
+   src: metricbeat/kibana-xpack.yml
+   dest: /etc/metricbeat/modules.d/kibana-xpack.yml
+
+- name: Configuring beat-xpack
+  template: 
+   src: metricbeat/beat-xpack.yml
+   dest: /etc/metricbeat/modules.d/beat-xpack.yml
+
+
+
+  ### ------ Filebeat module configuration
+
+
+- name: Configuring elasticsearch filebeat module
+  template: 
+   src: filebeat/elasticsearch.yml
+   dest: /etc/filebeat/modules.d/elasticsearch.yml
+
+
+
+- name: Configuring kibana filebeat module
+  template: 
+   src: filebeat/kibana.yml
+   dest: /etc/filebeat/modules.d/kibana.yml
+
+
+### ------- Heartbeat module configuration 
+
+
+- name: Configuring http monitor for heartbeat
+  template: 
+   src: heartbeat/http.yml
+   dest: /etc/heartbeat/monitors.d/http.yml
+
+
+- name: Configuring tcp monitor for heartbeat
+  template: 
+   src: heartbeat/tcp.yml
+   dest: /etc/heartbeat/monitors.d/tcp.yml
+
+- name: Configuring icmp monitor for heartbeat
+  template: 
+   src: heartbeat/icmp.yml
+   dest: /etc/heartbeat/monitors.d/icmp.yml
+
+
+  

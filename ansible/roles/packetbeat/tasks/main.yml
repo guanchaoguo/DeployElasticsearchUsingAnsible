@@ -1,0 +1,25 @@
+---
+# tasks file for packetbeat
+
+# ------Install packetbeat--------
+
+
+- name: Install packetbeat
+  apt:
+   name: packetbeat
+   update_cache: yes
+
+# ----- Replacing the configuration file
+
+- name: Replace default packetbeat configuration file
+  template: 
+   src: packetbeat.yml
+   dest: /etc/packetbeat/packetbeat.yml
+
+#--------- Starting packetbeat service
+
+- name: Starting packetbeat
+  service:
+   name: packetbeat
+   state: started
+   enabled: yes

@@ -1,0 +1,25 @@
+---
+# tasks file for filebeat
+
+# ------Install filebeat--------
+
+
+- name: Install filebeat
+  apt:
+   name: filebeat
+   update_cache: yes
+
+# ----- Replacing the configuration file
+
+- name: Replace default filebeat configuration file
+  template: 
+   src: filebeat.yml
+   dest: /etc/filebeat/filebeat.yml
+
+#--------- Starting filebeat service
+
+- name: Starting filebeat
+  service:
+   name: filebeat
+   state: started
+   enabled: yes

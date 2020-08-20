@@ -1,0 +1,22 @@
+---
+# tasks file for config-beats-webserver
+
+
+### ---Metricbeat module configuration 
+
+- name: Configuring beat-xpack
+  template: 
+   src: metricbeat/beat-xpack.yml
+   dest: /etc/metricbeat/modules.d/beat-xpack.yml
+
+- name: Configuring apache
+  template: 
+   src: metricbeat/apache.yml
+   dest: /etc/metricbeat/modules.d/apache.yml   
+
+
+
+- name: Configuring apache module
+  template: 
+   src: filebeat/apache.yml
+   dest: /etc/filebeat/modules.d/apache.yml

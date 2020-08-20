@@ -1,0 +1,30 @@
+---
+# defaults file for metricbeat
+
+#------------ Live reload settings ---------
+reload_enabled: true
+reload_period: 10s
+
+#------------ Template settings ------------
+index_number_of_shards: 1
+index_codec: best_compression
+
+
+
+#-----------  dashboard----------------------
+setup_dashboards_enabled: true
+
+tag: elk
+
+#----------- Lopgging -----------------------
+logging_level: debug
+
+logging_to_files: true
+logging_path: /var/log/metricbeat
+logging_file_name: metricbeat
+Logging_keepfiles: 7
+logging_file_permissions: 0644
+
+
+#---------- Monitoring ---------------------
+monitoring_enabled: true

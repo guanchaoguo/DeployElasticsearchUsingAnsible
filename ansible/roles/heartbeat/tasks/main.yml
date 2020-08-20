@@ -1,0 +1,25 @@
+---
+# tasks file for heartbeat
+
+# ------Install heartbeat--------
+
+
+- name: Install heartbeat-elastic
+  apt:
+   name: heartbeat-elastic
+   update_cache: yes
+
+# ----- Replacing the configuration file
+
+- name: Replace default heartbeat configuration file
+  template: 
+   src: heartbeat.yml
+   dest: /etc/heartbeat/heartbeat.yml
+
+#--------- Starting heartbeat-elastic service
+
+- name: Starting heartbeat-elastic
+  service:
+   name: heartbeat-elastic
+   state: started
+   enabled: yes
