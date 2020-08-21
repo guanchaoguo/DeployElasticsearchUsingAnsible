@@ -1,7 +1,7 @@
-elastic_host: 192.168.1.40
+elastic_host: 192.168.1.42
 elastic_port: 9200
 
-kibana_host: 192.168.1.40
+kibana_host: 192.168.1.42
 kibana_port: 5601
 
 elastic_protocol: http

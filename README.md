@@ -93,6 +93,16 @@ Ansible master server should be able to connect to targer servers.
 ...
 ```
 
+## Vault
+
+encrypt credentials.yml
+
+ansible-vault encrypt vars/credentials.yml --vault-password-file vault/.vaultpass
+
+Run playbook
+
+ansible-playbook -i inventory/hosts.yml playbooks/deploy-elk.yml --vault-password-file vault/.vaultpass
+
 ## License
 
 None

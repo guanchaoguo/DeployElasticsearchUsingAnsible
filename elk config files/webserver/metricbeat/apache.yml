@@ -1,0 +1,10 @@
+# Module: apache
+# Docs: https://www.elastic.co/guide/en/beats/metricbeat/7.8/metricbeat-module-apache.html
+
+- module: apache
+  metricsets:
+    - status
+  period: 10s
+  hosts: ["http://192.168.2.19"]
+  #username: "user"
+  #password: "secret"

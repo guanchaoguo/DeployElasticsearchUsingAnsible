@@ -3,6 +3,17 @@
 # This playbook  will deploy elk stack
 - hosts: elk
   become: yes
-  vars_files: ../vars/credentials.yml
+  vars_files: 
+  - ../vars/credentials.yml
+  - ../vars/main.yml
   roles:
+  - ../roles/add-elastic-repo
+  - ../roles/java
+  - ../roles/elasticsearch
   - ../roles/kibana
+  - ../roles/metricbeat
+  - ../roles/filebeat
+  - ../roles/auditbeat
+  - ../roles/heartbeat
+  - ../roles/config-beats-elastic
+
