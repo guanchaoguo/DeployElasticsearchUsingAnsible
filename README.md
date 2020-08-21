@@ -1,7 +1,7 @@
-# Elasticsearch Lab
+# Elasticsearch Lab    
 
+  ![labit_logp](artifacts/images/labit_logo.gif)
 
-![alt text](https://gitlab.com/LabIT/elasticsearch/-/blob/master/artifacts/images/elasticsearch.png)
 This repository contains ansible playbooks to build an elasticsearch lab that consists of two apache webservers servers feeding logs into a single node elasticsearch cluster.
 
 This playbook has been tested on the following software versions:
@@ -43,6 +43,8 @@ Softwre Installed on each server
   - Filebeat
   - Auditbeat
   - Heartbeat
+
+![demo_architecture](artifacts/design_diagrams/Elasticsearch.jpg)
 
 ## Requirements
 
