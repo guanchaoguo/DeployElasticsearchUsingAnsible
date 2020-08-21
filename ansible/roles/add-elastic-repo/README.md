@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This role adds elasticsearch repository and public signing key onto the target server.
 
 Requirements
 ------------

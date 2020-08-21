@@ -55,6 +55,36 @@ Internet connectivity on each virtual machine to download software.
 - Ansible master server should be able to connect to targer servers.
 - Relevant ports should have been opened between elk and web servers
 
+Role Variables
+--------------
+### vars.yml
+  elastic_host: IP address of elaticsearch host
+
+  elastic_port: Elasticsearch port
+
+  kibana_host: IP address of kibana host
+
+  kibana_port: Kibana port
+
+  elastic_protocol: Elasticsearch communication protocol(http/https)
+
+  filebeat_http_port: Filebeat http monitoring port
+
+  auditbeat_http_port: Auditbeat http moniotring port
+
+  heartbeat_http_port: Heartbeat http monitoring port
+
+  packetbeat_http_port: Packetbeat http monitoring port
+
+  web_server_1: IP address of webserver 1
+
+  web_server_2: IP address of webserver 2
+
+
+### Credentials.yml
+  Contains authentication details for built-in elasticsearch users
+
+
 ## Example Playbook
 
     ---
