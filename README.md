@@ -1,4 +1,4 @@
-# Elasticsearch Lab    
+# How to automate deployment of Elasticsearch Lab demo using Ansible 
 
   ![labit_logp](artifacts/images/labit_logo.gif)
 
