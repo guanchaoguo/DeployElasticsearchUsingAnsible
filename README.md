@@ -185,7 +185,7 @@ Role Variables
 
 ## License
 
-None
+MIT License
 
 
 ## Author Information
