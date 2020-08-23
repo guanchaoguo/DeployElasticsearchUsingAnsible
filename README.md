@@ -54,6 +54,7 @@ Internet connectivity on each virtual machine to download software.
 
 - Ansible master server should be able to connect to targer servers.
 - Relevant ports should have been opened between elk and web servers
+- Relevant ports should be opened to access elasticsearch and kibana
 
 Role Variables
 --------------
