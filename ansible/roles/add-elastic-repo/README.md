@@ -1,31 +1,42 @@
-Role Name
+
+ ![labit_logp](artifacts/images/labit_logo.gif)
+
+add-elastic-repo
 =========
 
 This role adds elasticsearch repository and public signing key onto the target server.
 
+
 Requirements
 ------------
+Following elasticsearch repository and public signing-key being available. 
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+https://artifacts.elastic.co/GPG-KEY-elasticsearch
+https://artifacts.elastic.co/packages/7.x/apt
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+elasticsearch public signing key url
+
+elastic_psk_url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+elasticsearch 7.x repository definition
+
+elastic_repo: https://artifacts.elastic.co/packages/7.x/apt
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+- hosts: all
+  become: yes
+  roles:
+  - ../roles/add-elastic-repo
 
 License
 -------

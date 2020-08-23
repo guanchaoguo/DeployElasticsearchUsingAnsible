@@ -1,38 +1,57 @@
+ ![labit_logp](artifacts/images/labit_logo.gif)
+
 Role Name
 =========
 
-A brief description of the role goes here.
+This roles installs and configures heartbeat on target servers. 
 
-Requirements
-------------
+Heartbeat is a lightweight daemon that you install on a remote server to periodically check the status of your services and determine whether they are available. Unlike Metricbeat, which only tells you if your servers are up or down, Heartbeat tells you whether your services are reachable.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+heartbeat is an Elastic Beat. It’s based on the libbeat framework. 
 
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+This role requires the following role to be run on the target server first
+
+add-elastic-repo
+elasticsearch
+kibana
+metricbeat
+
+## Some versions of elasticsearch might also need the following role which installs openjdk-8
+
+java
+
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+# This playbook  will deploy elk stack
+- hosts: elk
+  become: yes
+  vars_files: 
+  - ../vars/credentials.yml
+  - ../vars/main.yml
+  roles:
+  - ../roles/add-elastic-repo
+  - ../roles/java
+  - ../roles/elasticsearch
+  - ../roles/kibana
+  - ../roles/metricbeat
+  - ../roles/filebeat
+  - ../roles/auditbeat
+  - ../roles/heartbeat
+  - ../roles/config-beats-elastic
+
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Vikas Yadav
