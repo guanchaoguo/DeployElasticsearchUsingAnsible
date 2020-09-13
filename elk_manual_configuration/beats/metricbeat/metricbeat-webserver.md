@@ -15,7 +15,7 @@
     echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 
 
-## 4. Update and Install elasticsearch
+## 4. Update and Install metricbeat
 
     sudo apt-get update 
 
